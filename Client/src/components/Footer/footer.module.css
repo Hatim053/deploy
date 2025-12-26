@@ -1,0 +1,139 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.footer {
+  background: #0b0f14;
+  color: #dce2eb;
+  padding: 60px 10%;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 20px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 40px;
+}
+
+.footer-col h3.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.footer-col h4 {
+  margin-bottom: 18px;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.footer-col p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #c7cdd8;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+}
+
+/* .social-links a {
+  display: inline-block;
+  margin-right: 12px;
+  font-size: 20px;
+  color: #c7cdd8;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #ffffff;
+} */
+
+.subscribe-form {
+  display: flex;
+  gap: 10px;
+}
+
+.subscribe-form input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+.subscribe-form button {
+  padding: 10px 20px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.subscribe-form button:hover {
+  background: #1e4db9;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 45px;
+  font-size: 14px;
+  color: #9da5b4;
+  border-top: 1px solid #20262d;
+  padding-top: 25px;
+}
+/* LIST SECTIONS IMPROVED */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding-bottom: 8px;
+}
+
+.footer-col ul li a {
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.25s ease;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* underline animation */
+.footer-col ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: #3b82f6; /* blue accent */
+  transition: width 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+}
+
+.footer-col ul li a:hover::after {
+  width: 100%;
+}

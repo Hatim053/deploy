@@ -1,0 +1,145 @@
+
+.bodyBase {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fb;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.createAdBackground {
+  background-image: url('./ChatGPT Image Nov 12, 2025, 07_53_23 AM.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.mainWrapper {
+  display: flex;
+  justify-content: flex-end; /* keep form on right side */
+  align-items: flex-start;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+
+  min-height: 100vh;
+  padding: 60px 5vw;
+}
+
+/* ✅ Form container */
+.formContainer {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  min-width: 500px;
+  max-height: 90vh; /* limit height */
+  overflow-y: scroll;
+  /* position: relative; */
+}
+
+/* Optional: smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+
+    .formContainer h2 {
+      text-align: center;
+      color: #2b2d42;
+      margin-bottom: 25px;
+    }
+
+    .formGroup {
+      margin-bottom: 18px;
+      
+    }
+
+    .formGroup label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #333;
+      
+    }
+
+    .formGroup input,
+    .formGroup select,
+    .formGroup textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid #ccc;
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    .formGroup input:focus,
+    .formGroup select:focus,
+    .formGroup textarea:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    }
+
+    .formGroup textarea {
+      resize: none;
+      height: 80px;
+    }
+
+    .formGroup input[type="file"] {
+      border: none;
+      padding: 5px;
+    }
+
+    .publishBtn {
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .publishBtn:hover {
+      background-color: #0056d2;
+      transform: scale(1.02);
+    }
+
+    .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #ffffff;
+    border: 2px solid #007bff;
+    color: #007bff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    position: absolute;
+    right: 90vw;
+    bottom: 90vh;
+
+}
+
+.back-btn:hover {
+    background-color: #007bff;
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    transform: translateX(-3px);
+}
+
+.back-btn:active {
+    transform: translateX(-1px);
+    box-shadow: none;
+}
