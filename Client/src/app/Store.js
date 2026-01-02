@@ -3,7 +3,6 @@ import loggedInUserReducer from '../user/userSlice.js'
 import selectedAdReducer from '../user/adSlice.js'
 import receiverIdReducer from '../user/receiverSlice.js'
 import chatIdReducer from '../user/chatSlice.js'
-import searchedAdsReducer from '../user/feedSlice.js'
 
 
 export const store = configureStore({
@@ -12,7 +11,6 @@ export const store = configureStore({
   selectedAd : selectedAdReducer,
   receiver : receiverIdReducer,
   chatId : chatIdReducer,
-  searchedAds : searchedAdsReducer,
 }
    
 })

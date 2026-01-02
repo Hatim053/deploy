@@ -4,23 +4,29 @@ import AdvertisementCard from '../Advertisement/AdvertisementCard/AdvertisementC
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { addAd } from '../../user/adSlice.js'
-import { useSelector } from "react-redux"
 
-function Feed() {
+
+function Feed({searchResult , page , limit}) {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const searchedAds = useSelector(state => state.searchedAds)
-    console.log(searchedAds)
+  
     function handleDescription(advertisement) {
     dispatch(addAd(advertisement))
     navigate('/adDescription')
     }
+    console.log(searchResult)
+    const startIdx = (page-1)*limit
+    const endIdx = startIdx + limit
     return (
         <>
             <div className={styles.feed}>
-             {(searchedAds == null || searchedAds.length == 0) ? <span className = {styles['empty']}>No Service Found For Your Area</span> : searchedAds.map((ad) => {
+               
+             {! searchResult && <span className = {styles['empty']}>No Service Found For Your Area</span> } 
+            {/* { console.log(searchResult)} */}
+             { searchResult && searchResult.slice(startIdx , endIdx).map((ad) => {
               return  <AdvertisementCard ad = {ad} handleDescription = {handleDescription} />
              })}
+
             </div>
         </>
     )

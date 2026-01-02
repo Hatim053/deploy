@@ -250,39 +250,11 @@ const updateSeller = asyncHandler(async (req, res, next) => {
 
 
 
-const verifyNumber = asyncHandler(async (req, res) => {
-    const { phone } = req.body
-
-    try {
-        const code = generateOTP()
-
-        const verification_check = await client.verify.v2
-            .services(process.env.TWILIO_VERIFY_SERVICE_SID)
-            .verificationChecks.create({ to: `+91${phone}`, code });
-
-        if (verification_check.status === "approved") {
-        // update seller as verified seller 
-        const seller = await Seller.findByIdAndUpdate(
-        { _id: req.seller._id },
-        { $set: { verified : true } },
-        { new: true }
-             )
-
-            res.json({ success: true, message: "OTP verified successfully" });
-        } else {
-            res.status(400).json({ success: false, message: "Invalid OTP" });
-        }
-    } catch (error) {
-        console.log(error)
-    }
-
-})
-
 
 
 
 export {
-    verifyNumber,
+
     handleSellerLogin,
     handlerSellerLogout,
     handleSellerSignup,

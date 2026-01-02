@@ -114,19 +114,45 @@ const handleFetchLiveAds = asyncHandler(async (req, res, next) => {
         })
 })
 
+const handleFeedAdvertisements = asyncHandler(async (req , res) => {
+    const skip = req.params.skip
+    const limit = req.params.limit || 12
+   const recentAds = await Advertisment.find()
+  .sort({ createdAt: -1 }) 
+  .limit(limit)
+  .skip(skip);
+  if(!recentAds) {
+    return res 
+    .status(501)
+    .json({
+        status : 501,
+        message : 'something went wrong',
+    })
+  }
+
+  return res
+    .status(200)
+    .json({
+        status : 200,
+        message : 'Ads Fetched Successfully',
+        ads : recentAds,
+    })
+ 
+})
 
 const handleSearchedAdvertisements = asyncHandler(async (req , res ,) => {
-    const  searchedQuery  = String(req.params.searchedQuery || "").trim()
+    const  serviceType  = String(req.params.serviceType || "").trim()
     const location = String(req.params.location || "").trim()
-    console.log(location)
-    console.log(searchedQuery)
+    const limit = req.params.limit
+    const skip = req.params.skip
+    console.log('ads clicked and searching for' , serviceType , location)
     const ads = await Advertisment.find({
-        serviceType : { $regex : `${searchedQuery.replace(/es$/i, "").replace(/s$/i,"")}.*`, $options : "i"},
+        serviceType : { $regex : `${serviceType.replace(/es$/i, "").replace(/s$/i,"")}.*`, $options : "i"},
         city : {
             $regex : location,
             $options : "i"
         }
-    })
+    }).limit(limit).skip(skip)
     
     return res
     .status(200)
@@ -135,6 +161,28 @@ const handleSearchedAdvertisements = asyncHandler(async (req , res ,) => {
         message : 'Ads Fetched Successfully',
         ads,
     })
+})
+
+const handleSearchSuggestions = asyncHandler(async(req,res) => {
+    const searchedQuery = String(req.params.searchedQuery || "").trim()
+    const location = String(req.params.location || "").trim()
+    console.log('suggestions agye' , searchedQuery , location)
+    const ads = await Advertisment.find({
+        title : { $regex : `${searchedQuery.replace(/es$/i, "").replace(/s$/i,"")}.*` , $options : "i"},
+        city : {
+            $regex : location,
+            $options : "i"
+        }
+         })
+
+        return res
+        .status(200)
+        .json({
+            status : 200,
+            message : 'Ads Fetched Successfully',
+            ads,
+        })
+
 })
 
 const handleDeleteAdvertisement = asyncHandler(async (req, res, next) => {
@@ -181,4 +229,6 @@ export {
     handleDeleteAdvertisement,
     handleSearchedAdvertisements,
     handleFetchMyAdvertisements,
+    handleSearchSuggestions,
+    handleFeedAdvertisements,
 }

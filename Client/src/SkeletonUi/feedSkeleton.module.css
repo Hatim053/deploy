@@ -1,0 +1,123 @@
+.feed {
+  width: 86vw;
+  display: grid;
+  grid-template-columns: repeat(4, 20vw);
+  grid-gap: 2vw;
+  margin-left: 7vw;
+  margin-right: 7vw;
+  margin-top: 20px;
+}
+
+/* ---------- Shimmer Animation ---------- */
+@keyframes shimmer {
+  0% {
+    background-position: -500px 0;
+  }
+  100% {
+    background-position: 500px 0;
+  }
+}
+
+/* ---------- Advertisement Shimmer Card ---------- */
+.advertisementShimmer {
+  width: 20vw;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 11px 0;
+
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #f6f7f2;
+
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.10);
+  border: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+/* ---------- Image Shimmer ---------- */
+.imgShimmer {
+  width: 20vw;
+  height: 16vw;
+  border-radius: 5px;
+  margin: 0 auto;
+
+  background: linear-gradient(
+    90deg,
+    #e0e0e0 25%,
+    #f0f0f0 37%,
+    #e0e0e0 63%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+/* ---------- Price Shimmer ---------- */
+.priceShimmer {
+  height: 18px;
+  width: 40%;
+  margin-left: 12px;
+  border-radius: 4px;
+
+  background: linear-gradient(
+    90deg,
+    #e0e0e0 25%,
+    #f0f0f0 37%,
+    #e0e0e0 63%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+/* ---------- Title Shimmer ---------- */
+.titleShimmer {
+  height: 14px;
+  width: 70%;
+  margin-left: 12px;
+  border-radius: 4px;
+
+  background: linear-gradient(
+    90deg,
+    #e0e0e0 25%,
+    #f0f0f0 37%,
+    #e0e0e0 63%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+/* ---------- Bottom Text Row ---------- */
+.textShimmer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+
+.areaShimmer {
+  height: 12px;
+  width: 30%;
+  border-radius: 4px;
+
+  background: linear-gradient(
+    90deg,
+    #e0e0e0 25%,
+    #f0f0f0 37%,
+    #e0e0e0 63%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+.dateShimmer {
+  height: 12px;
+  width: 25%;
+  border-radius: 4px;
+
+  background: linear-gradient(
+    90deg,
+    #e0e0e0 25%,
+    #f0f0f0 37%,
+    #e0e0e0 63%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+}

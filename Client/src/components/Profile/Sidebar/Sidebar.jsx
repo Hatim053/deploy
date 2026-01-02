@@ -3,15 +3,15 @@ import styles from "./sidebar.module.css"
 import { FaHome, FaUserCircle, FaMoneyCheckAlt, FaHistory, FaSignOutAlt , FaBullhorn } from "react-icons/fa"
 import { data, useNavigate } from "react-router-dom"
 import { useSelector , useDispatch } from "react-redux"
-import { addSearchedAds } from '../../../user/feedSlice.js'
+
+
 const Sidebar = ({ activeMenu, setActiveMenu , loggedInUser}) => {
 
-  const loggedInUserType = useSelector(state => state.loggedInUser)
-  console.log(loggedInUserType)
+  console.log(loggedInUser.accountType)
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const handleMenuClick = (menu, route) => {
-    if(menu == 'my-advertisements' && loggedInUserType == 'seller') {
+    if(menu == 'my-advertisements' && loggedInUser.accountType == 'seller') {
           fetch(`${import.meta.env.VITE_SERVER_SIDE_URL}/ad/my-ads` , {
       method : 'GET',
       credentials : 'include',
@@ -47,13 +47,13 @@ const Sidebar = ({ activeMenu, setActiveMenu , loggedInUser}) => {
         >
           <FaMoneyCheckAlt size={20} /> Subscription
         </div>
-          {loggedInUserType == 'seller' ? '' : <div
+          {loggedInUser.accountType == 'seller' ? <div
           className={`${styles.menuItem} ${activeMenu === "my-advertisements" ? styles.active : ""}`}
           onClick={() => handleMenuClick("my-advertisements", "/profile-feed/my-advertisements")}
         >
           <FaBullhorn size={20} /> My Advertisements
 
-        </div>}
+        </div> : ''}
         <div
           className={`${styles.menuItem} ${activeMenu === "transactions" ? styles.active : ""}`}
           onClick={() => handleMenuClick("transactions", "/profile-feed/payment-history")}

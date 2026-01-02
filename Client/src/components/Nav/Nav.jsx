@@ -2,33 +2,31 @@ import React from "react"
 import styles from './nav.module.css'
 
 
-function Nav({ setSearchedQuery }) {
+function Nav({ getAdvertisements }) {
 
 
     return (
         <>
-                <nav className = {styles.nav}>
-            <a href="" onClick = {(e) => {
-                setSearchedQuery(e.target.innerHtml)
-            }}>OUR-SERVICES</a>
-            <a href="" onClick = {(e) => {
-                setSearchedQuery(e.target.innerHtml)
-            }}>furniture</a>
-            <a href="" onClick = {(e) => {
-                setSearchedQuery('properties & spaces')
-            }}>properties & spaces</a>
-            <a href="" onClick = {(e) => {
-                setSearchedQuery(e.target.innerHtml)
-            }}>electronics & applainces</a>
-            <a href="" onClick = {(e) => {
-                setSearchedQuery('lighting & decoration')
-            }}>Lighting & Decor</a>
-            <a href="" onClick = {(e) => {
+        <nav className = {styles.nav}>
+           
+            <span onClick = {(e) => {
+               getAdvertisements(e.target.innerText)
+            }}>furniture</span>
+            <span onClick = {(e) => {
+                getAdvertisements(e.target.innerText)
+            }}>properties & spaces</span>
+            <span  onClick = {(e) => {
+                getAdvertisements(e.target.innerText)
+            }}>electronics & applainces</span>
+            <span  onClick = {(e) => {
+                getAdvertisements(e.target.innerText)
+            }}>lighting & decor</span>
+            <span  onClick = {(e) => {
                 setSearchedQuery(e.target.value)
-            }}>photography</a>
-            <a href="" onClick = {(e) => {
-                setSearchedQuery('other services')
-            }}>Events And More</a>
+            }}>photography</span>
+            <span onClick = {(e) => {
+                getAdvertisements(e.target.innerText)
+            }}>other services</span>
         </nav>
         </>
     )

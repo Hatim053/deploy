@@ -36,7 +36,7 @@
 .location input {
     height: 6vh;
     border: none;
-    width: 85%;
+    width: 100%;
     font-size: large;
     padding-left: 15px;
 }
@@ -71,7 +71,7 @@
 }
 .searchBar input{
     height: 6vh;
-    width: 92%;
+    width: 100%;
     border: none;
     padding-left: 10px;
     font-size: large;

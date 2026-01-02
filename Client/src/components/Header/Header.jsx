@@ -5,17 +5,7 @@ import chatIcon from './images/messenger.png'
 import {useNavigate} from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
-function Header({ setSearchedQuery , setLocation }) {
-
-    const searchRef = useRef(null)
-    const locationRef = useRef(null)
-
-  function searchAdvertisements() {
-
-    setLocation(locationRef.current.value)
-    setSearchedQuery(searchRef.current.value)
- 
-  }
+function Header({ setSearchedQuery , setLocation , setPage}) {
 
     const navigate = useNavigate()
     const loggedInUser = useSelector(state => state.loggedInUser)
@@ -52,31 +42,11 @@ function Header({ setSearchedQuery , setLocation }) {
                     
             <img src={logo} alt="" className = {styles.logo} onClick = {redirectHome}/>
             <div className = {styles.location}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"
-                    role="img">
-                    <title>Search</title>
-                    <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="7" />
-                        <line x1="16.5" y1="16.5" x2="22" y2="22" />
-                    </g>
-                </svg>
-                <input ref = {locationRef} type="text" placeholder = {`ex : "Bhopal"`}/>
+                <input onChange = {(e) => setLocation(e.target.value)}  type="text" placeholder = {`"your location"`}/>
 
             </div>
             <div className = {styles.searchBar}>
-                <input ref = {searchRef} type="text" placeholder={`search for "furniture"`}/>
-                <button className ={styles.svg} onClick = {searchAdvertisements}>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
-                        aria-hidden="true" role="img">
-                        <title>Search</title>
-                        <g fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="7" />
-                            <line x1="16.5" y1="16.5" x2="22" y2="22" />
-                        </g>
-                    </svg>
-
-                </button>
+                <input onChange = {(e) => {setSearchedQuery(e.target.value) , setPage(1)}} type="text" placeholder={`search for "furniture"`}/>
             </div>
             <div className = {styles.controlls}>
 

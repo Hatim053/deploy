@@ -1,0 +1,67 @@
+.paginationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+.navButton {
+  background: #0f172a; /* dark slate */
+  color: #e5e7eb;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+.navButton:hover {
+  background: #1e293b;
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.page {
+  background: transparent;
+  color: #cbd5f5;
+  border: 1px solid #334155;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.page:hover {
+  background: #1e293b;
+}
+
+.active {
+  background: #2563eb; /* primary blue */
+  color: white;
+  border-color: #2563eb;
+}
+
+.dots {
+  color: #64748b;
+  padding: 0 6px;
+  font-size: 14px;
+}
+.navButton:disabled {
+  background: #020617;
+  color: #475569;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.page:disabled {
+  border-color: #1e293b;
+  color: #475569;
+  cursor: not-allowed;
+}
