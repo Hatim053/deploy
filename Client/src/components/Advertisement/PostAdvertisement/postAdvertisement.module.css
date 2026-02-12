@@ -31,13 +31,16 @@
 
 /* ✅ Form container */
 .formContainer {
+     padding: 20px;
   background: rgba(255, 255, 255, 0.95);
-  padding: 30px 40px;
+  /* padding: 30px 40px; */
   border-radius: 20px;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  min-width: 500px;
+  width: 450px;
   max-height: 90vh; /* limit height */
-  overflow-y: scroll;
   /* position: relative; */
 }
 
@@ -69,7 +72,7 @@ html {
     .formGroup input,
     .formGroup select,
     .formGroup textarea {
-      width: 100%;
+      min-width: 100%;
       padding: 10px 12px;
       border: 1.5px solid #ccc;
       border-radius: 10px;
@@ -142,4 +145,7 @@ html {
 .back-btn:active {
     transform: translateX(-1px);
     box-shadow: none;
+}
+.form{
+  width: 100%;
 }

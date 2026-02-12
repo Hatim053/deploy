@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 function PostAdvertisement() {
   useEffect(() => {
    
-    document.body.classList.add(styles.bodyBase);
+    // document.body.classList.add(styles.bodyBase);
     document.body.classList.add(styles.createAdBackground);
 
  
@@ -53,7 +53,7 @@ function PostAdvertisement() {
            <button className = {styles['back-btn']} onClick = {() => navigate(-1)}>← Back</button>
           <div  className = {styles.formContainer}>
     <h2>Post Your Ad</h2>
-    <form  onSubmit = {handleCreateAd()}>
+    <form  className={styles.form} onSubmit = {handleCreateAd()}>
       <div  className = {styles.formGroup}>
         <label htmlFor="title">Ad Title</label>
         <input type="text" id="title" name="title" placeholder="Enter ad title" required />

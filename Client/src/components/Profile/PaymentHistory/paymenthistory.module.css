@@ -1,11 +1,13 @@
 .container {
   background: #f4f6fc;
   width: 75%;
-  margin: auto;
-  padding-top: 20px;
+  /* margin: auto; */
+  padding-top: 0px;
+  margin-left: 2%;
   max-height: 80vh;
   /* border: 4px solid rgba(0, 123, 255, 0.3); */
   border-radius: 18px;
+
 
 }
 

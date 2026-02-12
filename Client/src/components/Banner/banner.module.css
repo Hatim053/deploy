@@ -1,7 +1,95 @@
-.bannerImg{
-    width: 100vw;
+/* .bannerImg{
+   position: relative;
+    width: 90vw;
+    height: 500px;
     margin-top: 5px;
+    margin-left: 5vw;
     margin-bottom: 10px;
     border-radius: 20px;
-  
+    overflow: hidden;
+} */
+
+.bannerWrapper{
+    position: relative;
+    width: 90vw;
+    height: 500px;           /* FIXED HEIGHT */
+    margin-top: 10px;
+    margin-left: 5vw;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Image forced to fit container */
+.bannerImg{
+    width: 90vw;
+    margin-left: 5vw;
+    margin-top: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    height: 500px;
+    object-fit: cover;      /* 🔥 KEY LINE */
+    object-position: center center;
+    display: block;
+}
+
+/* Overlay */
+.overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.2)
+    );
+    z-index: 1;
+    width: 90vw;
+    margin-left: 4.5vw;
+    height: 500px;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    top: 40px;
+}
+
+/* Text */
+.bannerContent{
+    position: absolute;
+    bottom: 160px;
+    left: 80px;
+    z-index: 2;
+    color: white;
+    max-width: 55%;
+}
+
+
+/* Typography */
+.bannerContent h1{
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.bannerContent p{
+    font-size: 1.1rem;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* CTA */
+.bannerContent button{
+    margin-top: 14px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    background: white;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.bannerContent button:hover{
+    transform: translateY(-2px);
+    background: #f1f1f1;
 }

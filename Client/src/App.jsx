@@ -85,7 +85,7 @@ function App() {
     <>
       <Header setSearchedQuery={setSearchedQuery} setLocation={setLocation} setPage={setPage} />
       {suggestionList && <SearchSuggestions suggestionList={suggestionList} setSuggestionList={setSuggestionList} getSearchedAdvertisements={getSearchedAdvertisements} setPage={setPage} />}
-      <Nav getSearchedAdvertisements={getSearchedAdvertisements} />
+      {/* <Nav getSearchedAdvertisements={getSearchedAdvertisements} /> */}
 
       {searchedQuery == null && <Banner />}
       {(!searchResult && !recentAds) && <FeedSkeleton/>}

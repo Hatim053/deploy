@@ -1,11 +1,13 @@
 .feed{
-  width: 86vw;
+  width: 100vw;
   display: grid;
-  grid-template-columns: repeat(4 , 20vw);
-  grid-gap: 2vw;
-  margin-left: 7vw;
-  margin-right: 7vw;
+  grid-template-columns: repeat(4 , 23vw);
+  grid-gap: 1vw;
+padding-left: 2.5vw;
+padding-top: 15px;
+padding-bottom: 15px;
   margin-top: 20px;
+  background-image: url(./download\ \(5\).jpg);
 }
 .feed div{
   width: 20vw;

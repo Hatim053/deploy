@@ -129,7 +129,7 @@ function AccountInfo() {
             <button
               type="button"
              
-              className = {styles.editBtn}
+              className = {styles.editBtn} id = {!isEditing ? 'activeBtn' : ''}
               onClick={() => setIsEditing(true)}
               disabled={isEditing}
             >
@@ -139,8 +139,9 @@ function AccountInfo() {
             <button
               type="submit"
          
-              className = {styles.saveBtn}
+              className = {styles.saveBtn} id={isEditing ? 'activeBtn' : ''}
               disabled={!isEditing}
+              onClick={()=> setIsEditing(false)}
             >
               Save Changes
             </button>

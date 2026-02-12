@@ -136,11 +136,12 @@
 }
 
 .editBtn {
-  background: #1e3d8f;
+ 
+    background: #cfd8f5;
   color: #fff;
 }
 
-.editBtn:hover {
+.editBtn:not(:disabled):hover {
   background: #2e52b8;
 }
 
@@ -152,6 +153,9 @@
 .saveBtn:not(:disabled):hover {
   background: #1e3d8f;
   color: #fff;
+}
+#activeBtn {
+   background: #0d42d4;
 }
 
 /* Become Seller Section */
