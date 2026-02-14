@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import './App.css'
 import socket from './socket.js'
 import { useEffect } from 'react'
@@ -28,7 +28,7 @@ function App() {
   const limit = 12
 
   useEffect(() => {
-    if (!user) navigate('/user-login')
+    if (!user) return;
     if (user?._id) socket.emit('registerUser', user._id) // emmiting event to backend after user/seller login so that we can store their socketId's
   }, [user])
 
@@ -77,6 +77,7 @@ function App() {
     // console.log('getRecent')
     const response = await fetchData(`${import.meta.env.VITE_SERVER_SIDE_URL}/ad/recentAds/${(page-1)*limit}/${limit+1}`)
     recentAds ? setRecentsAds([...recentAds , ...response]) : setRecentsAds(response)
+    console.log(response)
     if(response.length > limit) setNextPage(true)
     else setNextPage(false)
 

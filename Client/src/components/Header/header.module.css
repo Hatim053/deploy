@@ -81,7 +81,7 @@
   color: white;
   border: none;
   padding: 10px 22px;
-  border-radius: 25px;
+  border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
   font-size: 15px;
@@ -89,10 +89,20 @@
   box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
   
 }
+.loginBtn{
+   background: linear-gradient(135deg, #007bff, #00c6ff);
+padding: 10px 22px;
+
+color: white;
+border-radius: 10px;
+cursor: pointer;
+}
+.loginBtn:hover {
+background: #0b5db4;
+}
 
 .sellBtn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
+background: #0b5db4;
 }
 
 .logoutBtn {
@@ -128,7 +138,7 @@
 }
 
 .chatBtn:hover img {
-  transform: scale(1.1);
+  transform: scale(1);
 }
 
 .profileBtn {

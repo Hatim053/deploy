@@ -9,23 +9,34 @@ function Header({ setSearchedQuery , setLocation , setPage}) {
 
     const navigate = useNavigate()
     const loggedInUser = useSelector(state => state.loggedInUser)
-    
+    console.log(loggedInUser)
   function redirectProfile() {
+    if(!loggedInUser) {
+    navigate('/user-login');
+    return;
+    }
     navigate('/profile-feed')
   }
 
   function redirectPostAd() {
+     if(!loggedInUser) navigate('/user-login');
     if(loggedInUser.accountType == 'user') navigate('/seller-signup')
     else navigate('/postAdvertisement')
   }
   function redirectchat() {
+   if(!loggedInUser) {
+    navigate('/user-login');
+    return;
+    }
     navigate('/chat')
+
   }
   function redirectHome() {
     console.log('clicked')
     navigate('/')
   }
   function redirectLogout() {
+     if(!loggedInUser) navigate('user-login');
   fetch(`${import.meta.env.VITE_SERVER_SIDE_URL}/${loggedInUser.accountType}/logout` , {
     method : 'GET',
     credentials : 'include',
@@ -60,8 +71,9 @@ function Header({ setSearchedQuery , setLocation , setPage}) {
                 <button className = {styles.chatBtn} title="Chat" onClick= {redirectchat}>
                     <img src={chatIcon} alt=""/>
                 </button>
-                <button className = {styles.logoutBtn} onClick = {redirectLogout}>Logout
-                </button>
+               {loggedInUser &&  <button className = {styles.logoutBtn} onClick = {redirectLogout}>Logout
+                </button>}
+                {!loggedInUser && <button className={styles.loginBtn} onClick = {() => navigate('/user-login')}>Login</button>}
                 <button className = {styles.sellBtn} onClick = {redirectPostAd}>
                     Rent Out Now
                 </button>
