@@ -23,29 +23,31 @@ const passwordRef = useRef(null)
 
 const navigate = useNavigate()
 
-function handleLogin() {
-return async(e) => {
-e.preventDefault()
-  let response = await fetch(`${import.meta.env.VITE_SERVER_SIDE_URL}/user/login` , {
-    method : 'POST',
+async function handleLogin(e) {
+  e.preventDefault();
+
+  let response = await fetch(`${import.meta.env.VITE_SERVER_SIDE_URL}/user/login`, {
+    method: 'POST',
     headers: {
-    "Content-Type": "application/json",
-  },
-  credentials: "include",
-  body : JSON.stringify({
-  email : emailRef.current.value,
-  password : passwordRef.current.value,
-  })
-  })
-  let data = await response.json()
-   if(data.status == 201) {
-    console.log('redirect kardo')
-    dispatch(addUser(data.user))
-    navigate('/')
-  } 
-  if(data.status == 401) redirectSignup()
-}  
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify({
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    })
+  });
+
+  let data = await response.json();
+
+  if (data.status === 201) {
+    dispatch(addUser(data.user));
+    navigate('/');
+  }
+
+  if (data.status === 401) redirectSignup();
 }
+
 
 function redirectSignup() {
   navigate('/user-signup')
@@ -67,7 +69,7 @@ function redirectSignup() {
         </div>
 
         <div className={styles.formInner}>
-          <form  className={styles.login} onSubmit = {handleLogin()}  >
+          <form  className={styles.login} onSubmit = {handleLogin}  >
             <div className={styles.field}>
               <input ref = {emailRef} type="text" placeholder="Email Address" required />
             </div>
@@ -82,7 +84,7 @@ function redirectSignup() {
               <input type="submit" value="Login"/>
             </div>
             <div className={styles.signupLink}>are you a seller? 
-             <a href="" onClick = {() => navigate('/seller-login')}> Seller login</a>
+             <a href="#" onClick = {() => navigate('/seller-login')}> Seller login</a>
             </div>
           </form>
         </div>
