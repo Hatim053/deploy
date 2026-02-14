@@ -2,8 +2,6 @@ import Seller from '../models/seller.model.js'
 import jwt from 'jsonwebtoken'
 import asyncHandler from '../utilities/asyncHandler.js'
 import uploadOnCloudinary from '../utilities/cloudinary.js'
-import { client, generateOTP } from '../utilities/otp.js'
-
 
 
 const options = {
@@ -148,14 +146,14 @@ const handleSellerSignup = asyncHandler(async (req, res, next) => {
 
 const refreshAccessToken = asyncHandler(async (req, res, next) => {
     // step : 
-    // first getthe refreshToken from cookies
+    // first get the refreshToken from cookies
     // decode it
     // find user associated with the token
     // validate both the tokens 
     // generate new ones and add them to cookies
 
     const incomingRefreshToken = req.cookies?.refreshToken
-    if (!incomingRefreshToken) { // possibely we can redirect here for login
+    if (!incomingRefreshToken) { // possibelly we can redirect here for login
         return res
             .status(401)
             .json({
@@ -164,7 +162,7 @@ const refreshAccessToken = asyncHandler(async (req, res, next) => {
             })
     }
     const decodedRefreshToken = jwt.verify(incomingRefreshToken, process.env.REFRESHTOKENSECRET)
-    if (!decodedRefreshToken) { // possibely we can redirect here for login
+    if (!decodedRefreshToken) { // possibelly we can redirect here for login
         return res
             .status(404)
             .json({

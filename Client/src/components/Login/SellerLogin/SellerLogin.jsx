@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef } from "react"
 import styles from "./sellerLogin.module.css"
-import { useDispatch , useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom"
 import { addUser } from '../../../user/userSlice.js'
 
@@ -41,6 +41,7 @@ e.preventDefault()
   })
   let data = await response.json()
    if(data.status == 200) {
+    
     dispatch(addUser(data.seller))
     navigate('/')
   } 
