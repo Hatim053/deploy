@@ -12,11 +12,13 @@ function AdDescription() {
   const ad = useSelector(state => state.selectedAd)
   const dispatch = useDispatch()
   const [mainImage, setMainImage] = useState(ad.images[0])
-  const currentUserId = useSelector(state => state.loggedInUser._id)
+  const currentUserId = useSelector(state => state.loggedInUser?._id)
 
-  console.log(ad)
 function redirectChat() {
-  
+  if(!currentUserId) {
+    navigate('/user-login');
+    return;
+  }
   // fetching chatId
   fetch(`${import.meta.env.VITE_SERVER_SIDE_URL}/api/chat/find/${currentUserId}/${ad.sellerId}` , {
     method : 'GET',
